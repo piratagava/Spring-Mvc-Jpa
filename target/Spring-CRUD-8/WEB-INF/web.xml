@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+		 http://java.sun.com/xml/ns/javaee/web-app_2.5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<!-- EL nombre de nuestro Proyecto -->
+	<display-name>Spring-CRUD</display-name>
+
+	<!-- opcional sirve para ejecutar un ordenamiento absoluto dentro de la 
+		web -->
+	<absolute-ordering />
+
+	<!-- configuracion del dispatchett servlet para poder arrancar y usar la 
+		app @RequestMapping -->
+	<servlet>
+		<!-- Nombre de nuestro dispatcher -->
+		<servlet-name>dispatcher</servlet-name>
+		<!-- Es propio del servlet configuracion para poder ejecutar la clase -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<!-- inicio de parametros asignando un nombre -->
+			<param-name>contextConfigLocation</param-name>
+			<!-- Informar donde va encontrar los recursos de nuestro servlet que vamos 
+				a ejecutar -->
+			<param-value>/WEB-INF/spring-servlet.xml</param-value>
+		</init-param>
+		<!-- indica en que momento va arrancar el servlet en este caso en el momento 
+			indicado que es 1 hacia adelante -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- ubicacion de URL Servlet pasamos el nombre de servlet que creamos para 
+		que pueda ser mapeada y asu ves leer los archivos que serviran para presentar 
+		las vistas front -->
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<!-- asignamos la ruta en este caso se define global para que las pueda 
+			encontrar -->
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/META-INF/log4j.properties</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>	
+	</welcome-file-list>
+
+</web-app>
