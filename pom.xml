@@ -17,7 +17,7 @@
 		<roo.version>1.2.4.RELEASE</roo.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<springwebflow-version>2.4.0.RELEASE</springwebflow-version>
-		<tomcat.version>7.0.29</tomcat.version>
+		<tomcat.version>7.0.81</tomcat.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
